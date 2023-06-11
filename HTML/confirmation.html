@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <style>
+    /* Add your custom styles here */
+    .confirmation {
+      background-image: url('/dentalBG.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .card {
+      box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="confirmation">
+    <div class="container">
+      <div class="row justify-content-end">
+        <div class="col-lg-5">
+          <div class="card shadow-lg p-5 mb-5 bg-white rounded border-0">
+            <div class="card-body">
+              <h2 class="card-title text-center mb-4 text-primary">Appointment Confirmed!</h2>
+              <p class="text-center mb-4 text-muted">Thank you for booking with us. Here are your appointment details:</p>
+              <hr>
+              <p class="mb-2 text-muted"><strong>Full Name:</strong> <span id="fullName"></span></p>
+              <p class="mb-2 text-muted"><strong>Email:</strong> <span id="email"></span></p>
+              <p class="mb-2 text-muted"><strong>Phone Number:</strong> <span id="phoneNumber"></span></p>
+              <p class="mb-2 text-muted"><strong>Age:</strong> <span id="age"></span></p>
+              <p class="mb-2 text-muted"><strong>Preferred Date:</strong> <span id="date"></span></p>
+              <p class="mb-2 text-muted"><strong>Selected Services:</strong> <span id="services"></span></p>
+              <p class="mb-4 text-muted"><strong>Additional Information:</strong> <span id="message"></span></p>
+              <hr>
+              <p class="text-center text-muted">If you need to make any changes, please contact us immediately.</p>
+              <button class="btn btn-primary mt-3 w-100" onclick="returnHome()">Return Home</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function() {
+      var formDetails = JSON.parse(localStorage.getItem('formDetails'));
+  
+      document.getElementById('fullName').innerText = formDetails.name;
+      document.getElementById('email').innerText = formDetails.email;
+      document.getElementById('phoneNumber').innerText = formDetails.phone;
+      document.getElementById('age').innerText = formDetails.age;
+      document.getElementById('date').innerText = formDetails.date;
+      document.getElementById('services').innerText = formDetails.services;
+      document.getElementById('message').innerText = formDetails.message;
+    }
+  
+    function returnHome() {
+      // Redirect to home.html
+      window.location.href = '/Index.html';
+    }
+  </script>
+  
+
+</body>
+</html>
